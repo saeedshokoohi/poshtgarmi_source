@@ -130,11 +130,6 @@ app.controller('MyController', ['$scope', function($scope) {
         }
     };
 
-    // saveAs - ISO
-    this.picker14 = {
-        date: new Date().toISOString()
-    }
-
     this.openCalendar = function(e, picker) {
         that[picker].open = true;
     };

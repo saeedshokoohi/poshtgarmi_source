@@ -1,5 +1,5 @@
 /*!
- * angular-translate - v2.11.1 - 2016-07-17
+ * angular-translate - v2.11.0 - 2016-03-20
  * 
  * Copyright (c) 2016 The angular-translate team, Pascal Precht; Licensed MIT
  */
@@ -324,12 +324,6 @@ function $translateSanitizationProvider () {
 
       stack.push(value);
       angular.forEach(value, function (propertyValue, propertyKey) {
-
-        /* Skipping function properties. */
-        if (angular.isFunction(propertyValue)) {
-          return;
-        }
-
         result[propertyKey] = mapInterpolationParameters(propertyValue, iteratee, stack);
       });
       stack.splice(-1, 1); // remove last
@@ -383,7 +377,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
       $forceAsyncReloadEnabled = false,
       $nestedObjectDelimeter = '.',
       $isReady = false,
-      $keepContent = false,
       loaderCache,
       directivePriority = 0,
       statefulFilter = true,
@@ -410,7 +403,7 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
         }
       };
 
-  var version = '2.11.1';
+  var version = '2.11.0';
 
   // tries to determine the browsers language
   var getFirstBrowserLanguage = function () {
@@ -1339,29 +1332,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
   };
 
   /**
-   * @ngdoc function
-   * @name pascalprecht.translate.$translateProvider#keepContent
-   * @methodOf pascalprecht.translate.$translateProvider
-   *
-   * @description
-   * If keepContent is set to true than translate directive will always use innerHTML
-   * as a default translation
-   *
-   * Example:
-   * <pre>
-   *  app.config(function ($translateProvider) {
-   *    $translateProvider.keepContent(true);
-   *  });
-   * </pre>
-   *
-   * @param {boolean} value - valid values are true or false
-   */
-  this.keepContent = function (value) {
-    $keepContent = !(!value);
-    return this;
-  };
-
-  /**
    * @ngdoc object
    * @name pascalprecht.translate.$translate
    * @requires $interpolate
@@ -1385,8 +1355,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
    *                                     is the translation id and the value the translation.
    * @param {object=} interpolateParams An object hash for dynamic values
    * @param {string} interpolationId The id of the interpolation to use
-   * @param {string} defaultTranslationText the optional default translation text that is written as
-   *                                        as default text in case it is not found in any configured language
    * @param {string} forceLanguage A language to be used instead of the current language
    * @returns {object} promise
    */
@@ -1540,7 +1508,7 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
        * language and informs registered interpolators to also use the given
        * key as locale.
        *
-       * @param {string} key Locale key.
+       * @param {key} Locale key.
        */
       var useLanguage = function (key) {
         $uses = key;
@@ -1748,7 +1716,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
         if (translationTable && Object.prototype.hasOwnProperty.call(translationTable, translationId)) {
           Interpolator.setLocale(langKey);
           result = Interpolator.interpolate(translationTable[translationId], interpolateParams);
-          result = applyPostProcessing(translationId, translationTable[translationId], result, interpolateParams, langKey);
           if (result.substr(0, 2) === '@:') {
             return getFallbackTranslationInstant(langKey, result.substr(2), interpolateParams, Interpolator);
           }
@@ -1963,7 +1930,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
             result = determineTranslationInstant(translation.substr(2), interpolateParams, interpolationId, uses);
           } else {
             result = Interpolator.interpolate(translation, interpolateParams);
-            result = applyPostProcessing(translationId, translation, result, interpolateParams, uses);
           }
         } else {
           var missingTranslationHandlerTranslation;
@@ -2019,7 +1985,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
         if (!$translationTable[key] && $loaderFactory && !langPromises[key]) {
           langPromises[key] = loadAsync(key).then(function (translation) {
             translations(translation.key, translation.table);
-            return translation;
           });
         }
       };
@@ -2327,20 +2292,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
 
       /**
        * @ngdoc function
-       * @name pascalprecht.translate.$translate#isKeepContent
-       * @methodOf pascalprecht.translate.$translate
-       *
-       * @description
-       * Returns whether keepContent or not
-       *
-       * @return {boolean} keepContent value
-       */
-      $translate.isKeepContent = function () {
-        return $keepContent;
-      };
-
-      /**
-       * @ngdoc function
        * @name pascalprecht.translate.$translate#refresh
        * @methodOf pascalprecht.translate.$translate
        *
@@ -2426,7 +2377,6 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
               useLanguage($uses);
             }
             resolve();
-            return data;
           };
           oneTranslationsLoaded.displayName = 'refreshPostProcessor';
 
@@ -2752,29 +2702,17 @@ function $translateDefaultInterpolation ($interpolate, $translateSanitization) {
    * @methodOf pascalprecht.translate.$translateDefaultInterpolation
    *
    * @description
-   * Interpolates given value agains given interpolate params using angulars
+   * Interpolates given string agains given interpolate params using angulars
    * `$interpolate` service.
-   *
-   * Since AngularJS 1.5, `value` must not be a string but can be anything input.
    *
    * @returns {string} interpolated string.
    */
-  $translateInterpolator.interpolate = function (value, interpolationParams) {
+  $translateInterpolator.interpolate = function (string, interpolationParams) {
     interpolationParams = interpolationParams || {};
     interpolationParams = $translateSanitization.sanitize(interpolationParams, 'params');
 
-    var interpolatedText;
-    if (angular.isNumber(value)) {
-      // numbers are safe
-      interpolatedText = '' + value;
-    } else if (angular.isString(value)) {
-      // strings must be interpolated (that's the job here)
-      interpolatedText = $interpolate(value)(interpolationParams);
-      interpolatedText = $translateSanitization.sanitize(interpolatedText, 'text');
-    } else {
-      // neither a number or a string, cant interpolate => empty string
-      interpolatedText = '';
-    }
+    var interpolatedText = $interpolate(string)(interpolationParams);
+    interpolatedText = $translateSanitization.sanitize(interpolatedText, 'text');
 
     return interpolatedText;
   };
@@ -2822,7 +2760,6 @@ angular.module('pascalprecht.translate')
         <pre translate="WITH_VALUES" translate-values="{{values}}"></pre>
         <pre translate translate-values="{{values}}">WITH_VALUES</pre>
         <pre translate translate-attr-title="WITH_VALUES" translate-values="{{values}}"></pre>
-        <pre translate="WITH_CAMEL_CASE_KEY" translate-value-camel-case-key="Hi"></pre>
 
       </div>
     </file>
@@ -2833,8 +2770,7 @@ angular.module('pascalprecht.translate')
 
         $translateProvider.translations('en',{
           'TRANSLATION_ID': 'Hello there!',
-          'WITH_VALUES': 'The following value is dynamic: {{value}}',
-          'WITH_CAMEL_CASE_KEY': 'The interpolation key is camel cased: {{camelCaseKey}}'
+          'WITH_VALUES': 'The following value is dynamic: {{value}}'
         }).preferredLanguage('en');
 
       });
@@ -2871,10 +2807,6 @@ angular.module('pascalprecht.translate')
           element = $compile('<p translate translate-attr-title="TRANSLATION_ID"></p>')($rootScope);
           $rootScope.$digest();
           expect(element.attr('title')).toBe('Hello there!');
-
-          element = $compile('<p translate="WITH_CAMEL_CASE_KEY" translate-value-camel-case-key="Hello"></p>')($rootScope);
-          $rootScope.$digest();
-          expect(element.text()).toBe('The interpolation key is camel cased: Hello');
         });
       });
     </file>
@@ -3074,7 +3006,7 @@ function translateDirective($translate, $q, $interpolate, $compile, $parse, $roo
           }
           if (translateAttr === 'translate') {
             // default translate into innerHTML
-            if (successful || (!successful && !$translate.isKeepContent() && typeof iAttr.translateKeepContent === 'undefined')) {
+            if (successful || (!successful && typeof iAttr.translateKeepContent === 'undefined')) {
               iElement.empty().append(scope.preText + value + scope.postText);
             }
             var globallyEnabled = $translate.isPostCompilingEnabled();
@@ -3335,7 +3267,7 @@ angular.module('pascalprecht.translate')
           .translations('de',{
             'HELLO': 'Hallo Welt!'
           })
-          .preferredLanguage('en');
+          .translations(.preferredLanguage('en');
 
       });
 

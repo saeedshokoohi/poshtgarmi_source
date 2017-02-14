@@ -1170,7 +1170,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
         $urlRouter.update(true);
 
         return $state.current;
-      }).then(null, function (error) {
+      }, function (error) {
         if ($state.transition !== transition) return TransitionSuperseded;
 
         $state.transition = null;

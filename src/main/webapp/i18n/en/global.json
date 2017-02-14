@@ -1,111 +1,117 @@
 {
     "global": {
-        "title": "Poshtgarmi",
+        "title": "صندوق  پشت گرمی",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
-            "home": "Home",
+            "home": "صفحه اصلی",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entities",
-                "fund": "Fund",
-                "loanDuration": "Loan Duration",
-                "loanDurationIteration": "Loan Duration Iteration",
-                "payment": "Payment",
-                "member": "Member",
-                "loanRequest": "Loan Request",
-                "message": "Message",
+                "main": "عملیات",
+                "fund": "صندوق ها",
+                "loanDuration": "دوره های وام",
+                "loanDurationIteration": "سررسید های اقساط",
+                "payment": "پرداخت ها",
+                "member": "اعضای صندوق",
+                "loanRequest": "درخواست وام",
+                "message": "پیام ها",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "Account",
-                "settings": "Settings",
-                "password": "Password",
-                "sessions": "Sessions",
-                "login": "Sign in",
-                "logout": "Sign out",
-                "register": "Register"
+                "main": "حساب",
+                "settings": "تنظیمات",
+                "password": "کلمه عبور",
+                "sessions": "نشست ها",
+                "login": "ورود",
+                "logout": "خروج",
+                "register": "ثبت نام",
+                "userProfile":"پروفایل کاربری"
             },
             "admin": {
-                "main": "Administration",
-                "userManagement": "User management",
-                "tracker": "User tracker",
-                "metrics": "Metrics",
-                "health": "Health",
-                "configuration": "Configuration",
-                "logs": "Logs",
-                "audits": "Audits",
-                "apidocs": "API",
-                "database": "Database",
+                "main": "مدیریت",
+                "userManagement": "مدیریت کاربران",
+                "tracker": "پیگیری کاربران",
+                "metrics": "معیارها",
+                "health": "صحت عملکرد",
+                "configuration": "پیکربندی",
+                "logs": "لاگ ها",
+                "audits": "نویسنده",
+                "apidocs": "واسط ها",
+                "database": "پایگاه داده",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
-            "language": "Language"
+            "language": "زبان"
         },
         "form": {
-            "username": "Username",
-            "username.placeholder": "Your username",
-            "newpassword": "New password",
-            "newpassword.placeholder": "New password",
-            "confirmpassword": "New password confirmation",
-            "confirmpassword.placeholder": "Confirm the new password",
-            "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "username": "نام کاربری",
+            "username.placeholder": "نام کاربری",
+            "newpassword": "کلمه عبور",
+            "newpassword.placeholder": "کلمه عبور",
+            "confirmpassword": "تکرار کلمه عبور",
+            "confirmpassword.placeholder":  "تکرار کلمه عبور",
+            "email": "پست الکترونیکی",
+            "email.placeholder":  "پست الکترونیکی",
+            "phonenumber":"شماره موبایل",
+            "phonenumber.placeholder":"09121111111"
         },
         "messages": {
             "info": {
                 "authenticated": "If you want to <a class=\"alert-link\" href=\"\" ng-click=\"vm.login()\">sign in</a>, you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\").",
-                "register": "You don't have an account yet? <a class=\"alert-link\" href=\"\" ng-click=\"vm.register()\">Register a new account</a>"
+                "register": "حساب کاربری ندارید؟ <a class=\"alert-link\" href=\"\" ng-click=\"vm.register()\">ثبت نام کنید</a>"
             },
             "error": {
-                "dontmatch": "The password and its confirmation do not match!"
+                "dontmatch": "کلمه عبور و تکرار آن مطابقت ندارند"
             },
             "validate": {
                 "newpassword": {
-                    "required": "Your password is required.",
-                    "minlength": "Your password is required to be at least 4 characters.",
-                    "maxlength": "Your password cannot be longer than 50 characters.",
-                    "strength": "Password strength:"
+                    "required": "کلمه عبور الزامی است",
+                    "minlength": "کلمه عبور حد اقل باید 4 حرف داشته باشد",
+                    "maxlength": "کلمه عبور نمیتواند بیشتر از 50 کاراکتر باشد",
+                    "strength": "پیچیدگی کلمه عبور:"
                 },
                 "confirmpassword": {
-                    "required": "Your confirmation password is required.",
-                    "minlength": "Your confirmation password is required to be at least 4 characters.",
-                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                    "required": "تکرار کلمه عبور الزامی است",
+                    "minlength":  "کلمه عبور حد اقل باید 4 حرف داشته باشد",
+                    "maxlength": "کلمه عبور نمیتواند بیشتر از 50 کاراکتر باشد"
                 },
                 "email": {
-                    "required": "Your e-mail is required.",
-                    "invalid": "Your e-mail is invalid.",
-                    "minlength": "Your e-mail is required to be at least 5 characters.",
-                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                    "required": "آدرس پست الکترونیکی الزامی است",
+                    "invalid": "آدرس پست الکترونیکی معتبر نیست",
+                    "minlength": "پست الکترونیکی حداقل باید 5 کاراکتر باشد",
+                    "maxlength": "آدرس پست الکترونیکی نمیتواند بیشتر از 50 کاراکتر باشد."
                 }
             }
         },
         "field": {
-            "id": "ID"
+            "id": "شناسه"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev":"درحال توسعه"
         }
     },
     "entity": {
         "action": {
-            "addblob": "Add blob",
-            "addimage": "Add image",
-            "back": "Back",
-            "cancel": "Cancel",
-            "delete": "Delete",
-            "edit": "Edit",
-            "open": "Open",
-            "save": "Save",
-            "view": "View"
+            "addblob": "اضافه کردن فایل",
+            "addimage": "اضافه کردن تصویر",
+            "selectImage":"انتخاب تصویر",
+            "confirmImage":"تایید",
+            "back": "بازگشت",
+            "cancel": "لغو",
+            "delete": "حذف",
+            "edit": "ویرایش",
+            "open": "باز کردن",
+            "save": "ثبت",
+            "view": "نمایش",
+            "backToList":"backToList"
         },
         "detail": {
-            "field": "Field",
-            "value": "Value"
+            "field": "فیلد",
+            "value": "مقدار"
         },
         "delete": {
-            "title": "Confirm delete operation"
+            "title": "اطمینان از حذف"
         },
         "validation": {
-            "required": "This field is required.",
+            "required": "وارد کردن این فیلد الزامی است",
             "minlength": "This field is required to be at least {{ min }} characters.",
             "maxlength": "This field cannot be longer than {{ max }} characters.",
             "min": "This field should be more than {{ min }}.",
@@ -119,12 +125,14 @@
     },
     "error": {
         "server.not.reachable": "Server not reachable",
-        "url.not.found": "Not found",
-        "NotNull": "Field {{ fieldName }} cannot be empty!",
-        "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
-        "userexists": "Login name already used!",
-        "emailexists": "E-mail is already in use!",
-        "idexists": "A new {{ entityName }} cannot already have an ID"
+        "url.not.found": "پیدا نشد",
+        "NotNull": "فیلد {{ fieldName }} نمیتواند خالی باشد",
+        "Size": "اندازه فیلد {{ fieldName }} مناسب نیست",
+        "userexists": "نام کاربری وجود دارد",
+        "emailexists": "پست الکترونیکی قبلا استفاده شده است",
+        "idexists": "A new {{ entityName }} cannot already have an ID",
+        "phonenumberexists": "شماره موبایل تکراری است"
+
     },
-    "footer": "This is your footer"
+    "footer": ""
 }
