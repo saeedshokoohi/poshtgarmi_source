@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity LoanDuration.
+    -->
+    <changeSet id="20170214205508-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fund_id"
+                                 baseTableName="loan_duration"
+                                 constraintName="fk_loan_duration_fund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fund"/>
+
+        <addForeignKeyConstraint baseColumnNames="loan_durations_id"
+                                 baseTableName="loan_duration_members"
+                                 constraintName="fk_loan_duration_members_loan_durations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="loan_duration"/>
+        <addForeignKeyConstraint baseColumnNames="members_id"
+                                 baseTableName="loan_duration_members"
+                                 constraintName="fk_loan_duration_members_members_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="member"/>
+        
+    </changeSet>
+</databaseChangeLog>

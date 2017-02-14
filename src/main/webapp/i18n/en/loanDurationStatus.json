@@ -1,0 +1,9 @@
+{
+    "poshtgarmiApp": {
+        "LoanDurationStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "INACTIVE": "INACTIVE"
+        }
+    }
+}

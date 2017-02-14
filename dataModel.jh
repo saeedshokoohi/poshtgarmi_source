@@ -1,0 +1,151 @@
+
+entity Fund {
+id Long,
+title String,
+description String,
+agreement String,
+createDate ZonedDateTime,
+status FundStatus,
+type String
+}
+entity LoanDuration {
+id Long,
+title String, 
+description String, 
+status LoanDurationStatus, 
+agreement String,
+createDate ZonedDateTime,
+startDate ZonedDateTime,
+minMember Integer, 
+maxMember Integer,
+fundSeedAmount Integer,
+sarresidDay Integer,
+loanPayDay Integer
+}
+entity LoanDurationIteration {
+id Long, 
+title String, 
+createDate ZonedDateTime, 
+IterationIndex Integer, 
+status LoanDurationIterationStatus
+}
+
+entity Payment {
+id Long, 
+type PaymentType, 
+createDate ZonedDateTime,
+amount Integer,
+transactionInfo String, 
+status PaymentStatus, 
+description String 
+
+}
+entity Member {
+id Long, 
+name String, 
+userid Long,
+memberType MemberType,
+lastName String, 
+nationalCode String,
+phoneNumber String, 
+ibnNumber String, 
+cardNumber String,
+accountNumber String, 
+bankCode String
+
+}
+entity LoanRequest {
+id Long, 
+createDate ZonedDateTime, 
+description String, 
+status String
+
+}
+entity Message {
+id Long, 
+title String, 
+type String,
+description String, 
+info String, 
+link String 
+}
+
+relationship ManyToOne {
+LoanDuration{fund} to Fund 
+}
+relationship ManyToOne {
+LoanDurationIteration{loanDuration} to LoanDuration 
+}
+relationship ManyToOne {
+  LoanRequest{loanDurationIteration} to LoanDurationIteration
+}
+
+relationship ManyToOne {
+Payment{loanDurationIteration} to LoanDurationIteration 
+}
+relationship ManyToMany
+{
+Fund{members} to Member{funds}
+}
+relationship ManyToMany
+{
+LoanDuration{members} to Member{loanDurations}
+}
+relationship ManyToMany
+{
+LoanDurationIteration{payment} to Payment{loanDurationIteration}
+}
+relationship ManyToOne
+{
+  Payment{member} to Member
+}
+relationship ManyToOne
+{
+   LoanRequest{member} to Member
+}
+relationship ManyToOne
+{
+  Message{fund} to Fund
+}
+relationship ManyToOne
+{
+  Message{member} to Member
+}
+enum FundStatus
+{
+  ACTIVE,
+  INACTIVE
+}
+enum LoanDurationStatus
+{
+ ACTIVE,
+  INACTIVE
+}
+enum LoanDurationIterationStatus
+{
+  ACTIVE,
+  INACTIVE,
+  FINISHED
+
+}
+enum PaymentType
+{
+  INCOME,OUTCOME
+}
+enum PaymentStatus
+{
+   ACTIVE,DONE,FAILED
+   
+}
+enum MemberType
+{
+  MANAGER,ORDINARY
+}
+
+
+
+paginate all with pagination
+
+dto all with mapstruct
+
+service all with serviceClass

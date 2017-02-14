@@ -1,0 +1,87 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMemberLabel" data-translate="poshtgarmiApp.member.home.createOrEditLabel">Create or edit a Member</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.member.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.member.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.member.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.userid" for="field_userid">Userid</label>
+            <input type="number" class="form-control" name="userid" id="field_userid"
+                    ng-model="vm.member.userid"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.memberType" for="field_memberType">Member Type</label>
+            <select class="form-control" name="memberType" ng-model="vm.member.memberType" id="field_memberType">
+                <option value="MANAGER" data-translate="poshtgarmiApp.MemberType.MANAGER">MANAGER</option>
+                <option value="ORDINARY" data-translate="poshtgarmiApp.MemberType.ORDINARY">ORDINARY</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.member.lastName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.nationalCode" for="field_nationalCode">National Code</label>
+            <input type="text" class="form-control" name="nationalCode" id="field_nationalCode"
+                    ng-model="vm.member.nationalCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                    ng-model="vm.member.phoneNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.ibnNumber" for="field_ibnNumber">Ibn Number</label>
+            <input type="text" class="form-control" name="ibnNumber" id="field_ibnNumber"
+                    ng-model="vm.member.ibnNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.cardNumber" for="field_cardNumber">Card Number</label>
+            <input type="text" class="form-control" name="cardNumber" id="field_cardNumber"
+                    ng-model="vm.member.cardNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.accountNumber" for="field_accountNumber">Account Number</label>
+            <input type="text" class="form-control" name="accountNumber" id="field_accountNumber"
+                    ng-model="vm.member.accountNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.member.bankCode" for="field_bankCode">Bank Code</label>
+            <input type="text" class="form-control" name="bankCode" id="field_bankCode"
+                    ng-model="vm.member.bankCode"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

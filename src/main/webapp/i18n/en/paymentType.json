@@ -1,0 +1,9 @@
+{
+    "poshtgarmiApp": {
+        "PaymentType" : {
+            "null": "",
+            "INCOME": "INCOME",
+            "OUTCOME": "OUTCOME"
+        }
+    }
+}

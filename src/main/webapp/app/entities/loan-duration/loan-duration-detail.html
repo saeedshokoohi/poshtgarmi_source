@@ -1,0 +1,73 @@
+
+<div>
+    <h2><span data-translate="poshtgarmiApp.loanDuration.detail.title">Loan Duration</span> {{vm.loanDuration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="poshtgarmiApp.loanDuration.title">Title</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.title}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.description">Description</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.description}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'poshtgarmiApp.LoanDurationStatus.' + vm.loanDuration.status}}">{{vm.loanDuration.status}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.agreement">Agreement</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.agreement}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.minMember">Min Member</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.minMember}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.maxMember">Max Member</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.maxMember}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.fundSeedAmount">Fund Seed Amount</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.fundSeedAmount}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.sarresidDay">Sarresid Day</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.sarresidDay}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.loanPayDay">Loan Pay Day</span></dt>
+        <dd>
+            <span>{{vm.loanDuration.loanPayDay}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.fund">Fund</span></dt>
+        <dd>
+            <a ui-sref="fund-detail({id:vm.loanDuration.fundId})">{{vm.loanDuration.fundId}}</a>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanDuration.members">Members</span></dt>
+        <dd>
+            <span ng-repeat="members in vm.loanDuration.members">
+                <a ui-sref="member-detail({id: members.id})">{{members.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="loan-duration-detail.edit({id:vm.loanDuration.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

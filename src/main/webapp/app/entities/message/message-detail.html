@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="poshtgarmiApp.message.detail.title">Message</span> {{vm.message.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="poshtgarmiApp.message.title">Title</span></dt>
+        <dd>
+            <span>{{vm.message.title}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.type">Type</span></dt>
+        <dd>
+            <span>{{vm.message.type}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.description">Description</span></dt>
+        <dd>
+            <span>{{vm.message.description}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.info">Info</span></dt>
+        <dd>
+            <span>{{vm.message.info}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.link">Link</span></dt>
+        <dd>
+            <span>{{vm.message.link}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.fund">Fund</span></dt>
+        <dd>
+            <a ui-sref="fund-detail({id:vm.message.fundId})">{{vm.message.fundId}}</a>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.message.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.message.memberId})">{{vm.message.memberId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="message-detail.edit({id:vm.message.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

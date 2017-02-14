@@ -1,0 +1,81 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPaymentLabel" data-translate="poshtgarmiApp.payment.home.createOrEditLabel">Create or edit a Payment</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.payment.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.payment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.type" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.payment.type" id="field_type">
+                <option value="INCOME" data-translate="poshtgarmiApp.PaymentType.INCOME">INCOME</option>
+                <option value="OUTCOME" data-translate="poshtgarmiApp.PaymentType.OUTCOME">OUTCOME</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.createDate" for="field_createDate">Create Date</label>
+                <div class="input-group">
+                    <input id="field_createDate" type="text" class="form-control" name="createDate" datetime-picker="{{dateformat}}" ng-model="vm.payment.createDate" is-open="vm.datePickerOpenStatus.createDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.payment.amount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.transactionInfo" for="field_transactionInfo">Transaction Info</label>
+            <input type="text" class="form-control" name="transactionInfo" id="field_transactionInfo"
+                    ng-model="vm.payment.transactionInfo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.payment.status" id="field_status">
+                <option value="ACTIVE" data-translate="poshtgarmiApp.PaymentStatus.ACTIVE">ACTIVE</option>
+                <option value="DONE" data-translate="poshtgarmiApp.PaymentStatus.DONE">DONE</option>
+                <option value="FAILED" data-translate="poshtgarmiApp.PaymentStatus.FAILED">FAILED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="poshtgarmiApp.payment.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.payment.description"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="poshtgarmiApp.payment.loanDurationIteration" for="field_loanDurationIteration">Loan Duration Iteration</label>
+            <select class="form-control" id="field_loanDurationIteration" name="loanDurationIteration" ng-model="vm.payment.loanDurationIterationId" ng-options="loanDurationIteration.id as loanDurationIteration.id for loanDurationIteration in vm.loandurationiterations"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="poshtgarmiApp.payment.member" for="field_member">Member</label>
+            <select class="form-control" id="field_member" name="member" ng-model="vm.payment.memberId" ng-options="member.id as member.id for member in vm.members"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

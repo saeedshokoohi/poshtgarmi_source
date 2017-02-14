@@ -1,0 +1,78 @@
+<div>
+    <h2 data-translate="poshtgarmiApp.payment.home.title">Payments</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="payment.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="poshtgarmiApp.payment.home.createLabel">
+                        Create new Payment
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span data-translate="poshtgarmiApp.payment.type">Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="poshtgarmiApp.payment.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span data-translate="poshtgarmiApp.payment.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transactionInfo"><span data-translate="poshtgarmiApp.payment.transactionInfo">Transaction Info</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span data-translate="poshtgarmiApp.payment.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="poshtgarmiApp.payment.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="loanDurationIterationId"><span data-translate="poshtgarmiApp.payment.loanDurationIteration">Loan Duration Iteration</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="memberId"><span data-translate="poshtgarmiApp.payment.member">Member</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="payment in vm.payments track by payment.id">
+                    <td><a ui-sref="payment-detail({id:payment.id})">{{payment.id}}</a></td>
+                    <td data-translate="{{'poshtgarmiApp.PaymentType.' + payment.type}}">{{payment.type}}</td>
+                    <td>{{payment.createDate | date:'medium'}}</td>
+                    <td>{{payment.amount}}</td>
+                    <td>{{payment.transactionInfo}}</td>
+                    <td data-translate="{{'poshtgarmiApp.PaymentStatus.' + payment.status}}">{{payment.status}}</td>
+                    <td>{{payment.description}}</td>
+                    <td>
+                        <a ui-sref="loan-duration-iteration-detail({id:payment.loanDurationIterationId})">{{payment.loanDurationIterationId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="member-detail({id:payment.memberId})">{{payment.memberId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="payment-detail({id:payment.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="payment.edit({id:payment.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="payment.delete({id:payment.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "poshtgarmiApp": {
+        "loanRequest" : {
+            "home": {
+                "title": "Loan Requests",
+                "createLabel": "Create a new Loan Request",
+                "createOrEditLabel": "Create or edit a Loan Request",
+                "search": "Search for Loan Request"
+            },
+            "created": "A new Loan Request is created with identifier {{ param }}",
+            "updated": "A Loan Request is updated with identifier {{ param }}",
+            "deleted": "A Loan Request is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Loan Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Loan Request"
+            },
+            "createDate": "Create Date",
+            "description": "Description",
+            "status": "Status",
+            "loanDurationIteration": "Loan Duration Iteration",
+            "member": "Member"
+        }
+    }
+}

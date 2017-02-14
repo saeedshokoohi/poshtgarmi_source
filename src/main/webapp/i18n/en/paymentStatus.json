@@ -1,0 +1,10 @@
+{
+    "poshtgarmiApp": {
+        "PaymentStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "DONE": "DONE",
+            "FAILED": "FAILED"
+        }
+    }
+}

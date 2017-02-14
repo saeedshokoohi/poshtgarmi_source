@@ -1,0 +1,49 @@
+
+<div>
+    <h2><span data-translate="poshtgarmiApp.fund.detail.title">Fund</span> {{vm.fund.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="poshtgarmiApp.fund.title">Title</span></dt>
+        <dd>
+            <span>{{vm.fund.title}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.description">Description</span></dt>
+        <dd>
+            <span>{{vm.fund.description}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.agreement">Agreement</span></dt>
+        <dd>
+            <span>{{vm.fund.agreement}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.fund.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'poshtgarmiApp.FundStatus.' + vm.fund.status}}">{{vm.fund.status}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.type">Type</span></dt>
+        <dd>
+            <span>{{vm.fund.type}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.fund.members">Members</span></dt>
+        <dd>
+            <span ng-repeat="members in vm.fund.members">
+                <a ui-sref="member-detail({id: members.id})">{{members.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="fund-detail.edit({id:vm.fund.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

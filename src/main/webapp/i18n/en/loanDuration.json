@@ -1,0 +1,34 @@
+{
+    "poshtgarmiApp": {
+        "loanDuration" : {
+            "home": {
+                "title": "Loan Durations",
+                "createLabel": "Create a new Loan Duration",
+                "createOrEditLabel": "Create or edit a Loan Duration",
+                "search": "Search for Loan Duration"
+            },
+            "created": "A new Loan Duration is created with identifier {{ param }}",
+            "updated": "A Loan Duration is updated with identifier {{ param }}",
+            "deleted": "A Loan Duration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Loan Duration {{ id }}?"
+            },
+            "detail": {
+                "title": "Loan Duration"
+            },
+            "title": "Title",
+            "description": "Description",
+            "status": "Status",
+            "agreement": "Agreement",
+            "createDate": "Create Date",
+            "startDate": "Start Date",
+            "minMember": "Min Member",
+            "maxMember": "Max Member",
+            "fundSeedAmount": "Fund Seed Amount",
+            "sarresidDay": "Sarresid Day",
+            "loanPayDay": "Loan Pay Day",
+            "fund": "Fund",
+            "members": "Members"
+        }
+    }
+}

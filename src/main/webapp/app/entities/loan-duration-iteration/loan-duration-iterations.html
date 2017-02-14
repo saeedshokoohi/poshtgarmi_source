@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="poshtgarmiApp.loanDurationIteration.home.title">Loan Duration Iterations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="loan-duration-iteration.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="poshtgarmiApp.loanDurationIteration.home.createLabel">
+                        Create new Loan Duration Iteration
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="poshtgarmiApp.loanDurationIteration.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createDate"><span data-translate="poshtgarmiApp.loanDurationIteration.createDate">Create Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="iterationIndex"><span data-translate="poshtgarmiApp.loanDurationIteration.iterationIndex">Iteration Index</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span data-translate="poshtgarmiApp.loanDurationIteration.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="loanDurationId"><span data-translate="poshtgarmiApp.loanDurationIteration.loanDuration">Loan Duration</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="loanDurationIteration in vm.loanDurationIterations track by loanDurationIteration.id">
+                    <td><a ui-sref="loan-duration-iteration-detail({id:loanDurationIteration.id})">{{loanDurationIteration.id}}</a></td>
+                    <td>{{loanDurationIteration.title}}</td>
+                    <td>{{loanDurationIteration.createDate | date:'medium'}}</td>
+                    <td>{{loanDurationIteration.iterationIndex}}</td>
+                    <td data-translate="{{'poshtgarmiApp.LoanDurationIterationStatus.' + loanDurationIteration.status}}">{{loanDurationIteration.status}}</td>
+                    <td>
+                        <a ui-sref="loan-duration-detail({id:loanDurationIteration.loanDurationId})">{{loanDurationIteration.loanDurationId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="loan-duration-iteration-detail({id:loanDurationIteration.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="loan-duration-iteration.edit({id:loanDurationIteration.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="loan-duration-iteration.delete({id:loanDurationIteration.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

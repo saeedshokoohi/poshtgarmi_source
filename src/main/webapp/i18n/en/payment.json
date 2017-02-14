@@ -1,0 +1,30 @@
+{
+    "poshtgarmiApp": {
+        "payment" : {
+            "home": {
+                "title": "Payments",
+                "createLabel": "Create a new Payment",
+                "createOrEditLabel": "Create or edit a Payment",
+                "search": "Search for Payment"
+            },
+            "created": "A new Payment is created with identifier {{ param }}",
+            "updated": "A Payment is updated with identifier {{ param }}",
+            "deleted": "A Payment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Payment"
+            },
+            "type": "Type",
+            "createDate": "Create Date",
+            "amount": "Amount",
+            "transactionInfo": "Transaction Info",
+            "status": "Status",
+            "description": "Description",
+            "loanDurationIteration": "Loan Duration Iteration",
+            "member": "Member",
+            "loanDurationIteration": "Loan Duration Iteration"
+        }
+    }
+}

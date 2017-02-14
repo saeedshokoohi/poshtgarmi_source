@@ -1,0 +1,9 @@
+{
+    "poshtgarmiApp": {
+        "MemberType" : {
+            "null": "",
+            "MANAGER": "MANAGER",
+            "ORDINARY": "ORDINARY"
+        }
+    }
+}

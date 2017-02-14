@@ -1,0 +1,71 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fund",
+            "otherEntityName": "fund",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "loanDurations",
+            "relationshipName": "members",
+            "otherEntityName": "member",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "LoanDurationStatus",
+            "fieldValues": "ACTIVE,INACTIVE"
+        },
+        {
+            "fieldName": "agreement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "minMember",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxMember",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fundSeedAmount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sarresidDay",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "loanPayDay",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170214205508",
+    "entityTableName": "loan_duration",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass"
+}

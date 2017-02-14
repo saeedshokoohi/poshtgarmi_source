@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "loanDurationIteration",
+            "otherEntityName": "loanDurationIteration",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "loanDurationIteration",
+            "otherEntityName": "loanDurationIteration",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "payment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "PaymentType",
+            "fieldValues": "INCOME,OUTCOME"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "transactionInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "PaymentStatus",
+            "fieldValues": "ACTIVE,DONE,FAILED"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170214205510",
+    "entityTableName": "payment",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass"
+}

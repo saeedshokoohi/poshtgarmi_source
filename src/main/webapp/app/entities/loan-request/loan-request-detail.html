@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="poshtgarmiApp.loanRequest.detail.title">Loan Request</span> {{vm.loanRequest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="poshtgarmiApp.loanRequest.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.loanRequest.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanRequest.description">Description</span></dt>
+        <dd>
+            <span>{{vm.loanRequest.description}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanRequest.status">Status</span></dt>
+        <dd>
+            <span>{{vm.loanRequest.status}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanRequest.loanDurationIteration">Loan Duration Iteration</span></dt>
+        <dd>
+            <a ui-sref="loan-duration-iteration-detail({id:vm.loanRequest.loanDurationIterationId})">{{vm.loanRequest.loanDurationIterationId}}</a>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.loanRequest.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.loanRequest.memberId})">{{vm.loanRequest.memberId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="loan-request-detail.edit({id:vm.loanRequest.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

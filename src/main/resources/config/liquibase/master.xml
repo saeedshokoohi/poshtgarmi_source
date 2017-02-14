@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205507_added_entity_Fund.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205508_added_entity_LoanDuration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205509_added_entity_LoanDurationIteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205510_added_entity_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205511_added_entity_Member.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205512_added_entity_LoanRequest.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214210042_added_entity_Message.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170214205507_added_entity_constraints_Fund.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205508_added_entity_constraints_LoanDuration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205509_added_entity_constraints_LoanDurationIteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205510_added_entity_constraints_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214205512_added_entity_constraints_LoanRequest.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170214210042_added_entity_constraints_Message.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

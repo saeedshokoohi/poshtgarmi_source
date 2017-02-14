@@ -1,0 +1,27 @@
+{
+    "poshtgarmiApp": {
+        "loanDurationIteration" : {
+            "home": {
+                "title": "Loan Duration Iterations",
+                "createLabel": "Create a new Loan Duration Iteration",
+                "createOrEditLabel": "Create or edit a Loan Duration Iteration",
+                "search": "Search for Loan Duration Iteration"
+            },
+            "created": "A new Loan Duration Iteration is created with identifier {{ param }}",
+            "updated": "A Loan Duration Iteration is updated with identifier {{ param }}",
+            "deleted": "A Loan Duration Iteration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Loan Duration Iteration {{ id }}?"
+            },
+            "detail": {
+                "title": "Loan Duration Iteration"
+            },
+            "title": "Title",
+            "createDate": "Create Date",
+            "iterationIndex": "Iteration Index",
+            "status": "Status",
+            "loanDuration": "Loan Duration",
+            "payment": "Payment"
+        }
+    }
+}

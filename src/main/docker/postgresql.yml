@@ -1,0 +1,12 @@
+version: '2'
+services:
+    poshtgarmi-postgresql:
+        container_name: poshtgarmi-postgresql
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/poshtgarmi/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=poshtgarmi
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

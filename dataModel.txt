@@ -1,0 +1,88 @@
+entity Fund{
+id Long,
+title String,
+description String,
+agreement String,
+createDate ZonedDateTime,
+status String,
+type String
+}
+entity LoanDuration{
+id Long,
+title String, 
+description String, 
+status String, 
+agreement String,
+createDate ZonedDateTime,
+startDate ZonedDateTime,
+minMember Integer, 
+maxMember Integer,
+fundSeedAmount Integer,
+sarresidDay Integer,
+loanPayDay Integer
+}
+entity LoanDurationIteration {
+id Long, 
+title String, 
+createDate ZonedDateTime, 
+IterationIndex Integer, 
+status String
+}
+entity Payment {
+id Long, 
+type String, 
+createDate ZonedDateTime,
+amount Integer,
+transactionInfo String, 
+status String, 
+description String 
+
+}
+entity Member{
+id Long, 
+name String, 
+userid Long,
+lastName String, 
+nationalCode String,
+phoneNumber String, 
+ibnNumber String, 
+cardNumber String,
+accountNumber String, 
+bankCode String
+
+}
+entity LoanRequest {
+id Long, 
+createDate ZonedDateTime, 
+description String, 
+status String
+
+}
+entity Message{
+id Long, 
+title String, 
+description String, 
+info String, 
+link String 
+}
+relationship ManyToOne {
+LoanDuration to Fund 
+}
+relationship ManyToOne {
+LoanDurationIteration to LoanDuration 
+}
+relationship OneToMany {
+LoanDurationIteration to LoanRequest 
+}
+
+relationship ManyToOne {
+Payment to LoanDurationIteration 
+}
+
+
+
+paginate all with pagination
+
+dto all with mapstruct
+
+service all with serviceClass

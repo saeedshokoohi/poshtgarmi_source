@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="poshtgarmiApp.payment.detail.title">Payment</span> {{vm.payment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="poshtgarmiApp.payment.type">Type</span></dt>
+        <dd>
+            <span data-translate="{{'poshtgarmiApp.PaymentType.' + vm.payment.type}}">{{vm.payment.type}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{vm.payment.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.payment.amount}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.transactionInfo">Transaction Info</span></dt>
+        <dd>
+            <span>{{vm.payment.transactionInfo}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'poshtgarmiApp.PaymentStatus.' + vm.payment.status}}">{{vm.payment.status}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.description">Description</span></dt>
+        <dd>
+            <span>{{vm.payment.description}}</span>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.loanDurationIteration">Loan Duration Iteration</span></dt>
+        <dd>
+            <a ui-sref="loan-duration-iteration-detail({id:vm.payment.loanDurationIterationId})">{{vm.payment.loanDurationIterationId}}</a>
+        </dd>
+        <dt><span data-translate="poshtgarmiApp.payment.member">Member</span></dt>
+        <dd>
+            <a ui-sref="member-detail({id:vm.payment.memberId})">{{vm.payment.memberId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="payment-detail.edit({id:vm.payment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

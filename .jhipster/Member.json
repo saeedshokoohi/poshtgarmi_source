@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "funds",
+            "otherEntityName": "fund",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "members"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "loanDurations",
+            "otherEntityName": "loanDuration",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "members"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "memberType",
+            "fieldType": "MemberType",
+            "fieldValues": "MANAGER,ORDINARY"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nationalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ibnNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cardNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bankCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170214205511",
+    "entityTableName": "member",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass"
+}

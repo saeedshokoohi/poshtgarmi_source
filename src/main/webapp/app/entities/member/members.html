@@ -1,0 +1,78 @@
+<div>
+    <h2 data-translate="poshtgarmiApp.member.home.title">Members</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="member.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="poshtgarmiApp.member.home.createLabel">
+                        Create new Member
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="poshtgarmiApp.member.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userid"><span data-translate="poshtgarmiApp.member.userid">Userid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="memberType"><span data-translate="poshtgarmiApp.member.memberType">Member Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastName"><span data-translate="poshtgarmiApp.member.lastName">Last Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nationalCode"><span data-translate="poshtgarmiApp.member.nationalCode">National Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phoneNumber"><span data-translate="poshtgarmiApp.member.phoneNumber">Phone Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ibnNumber"><span data-translate="poshtgarmiApp.member.ibnNumber">Ibn Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cardNumber"><span data-translate="poshtgarmiApp.member.cardNumber">Card Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="accountNumber"><span data-translate="poshtgarmiApp.member.accountNumber">Account Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bankCode"><span data-translate="poshtgarmiApp.member.bankCode">Bank Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="member in vm.members track by member.id">
+                    <td><a ui-sref="member-detail({id:member.id})">{{member.id}}</a></td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.userid}}</td>
+                    <td data-translate="{{'poshtgarmiApp.MemberType.' + member.memberType}}">{{member.memberType}}</td>
+                    <td>{{member.lastName}}</td>
+                    <td>{{member.nationalCode}}</td>
+                    <td>{{member.phoneNumber}}</td>
+                    <td>{{member.ibnNumber}}</td>
+                    <td>{{member.cardNumber}}</td>
+                    <td>{{member.accountNumber}}</td>
+                    <td>{{member.bankCode}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="member-detail({id:member.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="member.edit({id:member.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="member.delete({id:member.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
