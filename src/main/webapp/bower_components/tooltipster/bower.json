@@ -1,0 +1,7 @@
+{
+  "name": "tooltipster",
+  "main": ["dist/js/tooltipster.bundle.js", "dist/css/tooltipster.bundle.css" , "dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-error.min.css"],
+  "dependencies": {
+    "jquery": ">=1.10"
+  }
+}
