@@ -34,7 +34,7 @@
                     <td>{{fund.title}}</td>
                     <td>{{fund.description}}</td>
                     <td>{{fund.agreement}}</td>
-                    <td>{{fund.createDate | date:'medium'}}</td>
+                    <td>{{fund.createDate | toPersianDate}}</td>
                     <td data-translate="{{'poshtgarmiApp.FundStatus.' + fund.status}}">{{fund.status}}</td>
                     <td>{{fund.type}}</td>
                     <td class="text-right">

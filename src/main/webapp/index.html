@@ -10,7 +10,21 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css">
+    <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
+    <link rel="stylesheet" href="bower_components/scheduler/codebase/dhtmlxscheduler.css">
+    <link rel="stylesheet" href="bower_components/wickedpicker/dist/wickedpicker.min.css">
+    <link rel="stylesheet" href="bower_components/tooltipster/dist/css/tooltipster.bundle.css">
+    <link rel="stylesheet" href="bower_components/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-error.min.css">
+    <link rel="stylesheet" href="bower_components/please-wait/build/please-wait.css">
+    <link rel="stylesheet" href="bower_components/SpinKit/css/spinkit.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css">
+    <link rel="stylesheet" href="bower_components/angular-wizard/dist/angular-wizard.min.css">
+    <link rel="stylesheet" href="bower_components/ng-image-gallery/dist/ng-image-gallery.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <!-- endinject -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="content/css/vendor.css">
@@ -25,20 +39,25 @@
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
+
+
 </head>
 <body ng-app="poshtgarmiApp" ng-strict-di>
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-sm-12" ></div>
+            <div class="" ui-view="content">
+                <!-- Angular views -->
+            </div>
 
+        </div>
         <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
+            <p translate="footer">@eyes-on Team</p>
         </div>
     </div>
 
@@ -59,6 +78,20 @@
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
     <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="bower_components/summernote/dist/summernote.js"></script>
+    <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+    <script src="bower_components/scheduler/codebase/jdate.js"></script>
+    <script src="bower_components/scheduler/codebase/dhtmlxscheduler.js"></script>
+    <script src="bower_components/scheduler/codebase/locale/locale_en.js"></script>
+    <script src="bower_components/scheduler/codebase/ext/dhtmlxscheduler_minical.js"></script>
+    <script src="bower_components/scheduler/codebase/ext/dhtmlxscheduler_limit.js"></script>
+    <script src="bower_components/scheduler/codebase/ext/dhtmlxscheduler_tooltip.js"></script>
+    <script src="bower_components/wickedpicker/dist/wickedpicker.min.js"></script>
+    <script src="bower_components/tooltipster/dist/js/tooltipster.bundle.js"></script>
+    <script src="bower_components/please-wait/build/please-wait.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -77,6 +110,15 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script src="bower_components/angular-summernote/dist/angular-summernote.js"></script>
+    <script src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
+    <script src="bower_components/angular-upload/angular-upload.js"></script>
+    <script src="bower_components/ng-image-gallery/dist/ng-image-gallery.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -168,6 +210,14 @@
     <script src="app/components/form/pagination.constants.js"></script>
     <script src="app/components/form/minbytes.directive.js"></script>
     <script src="app/components/form/maxbytes.directive.js"></script>
+    <script src="app/components/eyeson/time-picker/eyeson.time-picker.directive.js"></script>
+    <script src="app/components/eyeson/progress-bar/eyeson.progress-bar.directive.js"></script>
+    <script src="app/components/eyeson/persian-date/eyeson.persian-date.directive.js"></script>
+    <script src="app/components/eyeson/multi-select-autocomplete/eyeson.multi-select-autocomplete.directive.js"></script>
+    <script src="app/components/eyeson/image-upload/eyeson.image-upload.directive.js"></script>
+    <script src="app/components/eyeson/image-gallery-manager/eyeson.image-gallery-manager.directive.js"></script>
+    <script src="app/components/eyeson/image-gallery/eyeson.image-gallery.directive.js"></script>
+    <script src="app/components/eyeson/date-picker/eyeson.date-picker.directive.js"></script>
     <script src="app/components/alert/alert-error.directive.js"></script>
     <script src="app/components/alert/alert.service.js"></script>
     <script src="app/components/alert/alert.directive.js"></script>
@@ -235,6 +285,9 @@
     <script src="app/account/account.state.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+    <script src="bower_components/persian-datepicker/persian-datepicker-tpls.js"></script>
+
+    <script src="bower_components/persian-datepicker/persiandate.js"></script>
 
 </body>
 </html>
