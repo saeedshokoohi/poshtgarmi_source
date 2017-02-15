@@ -2,27 +2,27 @@
     "poshtgarmiApp": {
         "fund" : {
             "home": {
-                "title": "Funds",
-                "createLabel": "Create a new Fund",
-                "createOrEditLabel": "Create or edit a Fund",
-                "search": "Search for Fund"
+                "title": "صندوق",
+                "createLabel": "ایجاد صندوق جدید",
+                "createOrEditLabel": "ویرایش یا ایجاد صندوق",
+                "search": "جستجو برای صندوق ها"
             },
-            "created": "A new Fund is created with identifier {{ param }}",
-            "updated": "A Fund is updated with identifier {{ param }}",
-            "deleted": "A Fund is deleted with identifier {{ param }}",
+            "created": "یک صندوق جدید ایجاد شد",
+            "updated": "صندوق ویرایش شد",
+            "deleted": "صندوق حذف شد",
             "delete": {
-                "question": "Are you sure you want to delete Fund {{ id }}?"
+                "question": "آیا از حذف صندوق اطمینان دارید"
             },
             "detail": {
-                "title": "Fund"
+                "title": "صندوق"
             },
-            "title": "Title",
-            "description": "Description",
-            "agreement": "Agreement",
-            "createDate": "Create Date",
-            "status": "Status",
-            "type": "Type",
-            "members": "Members"
+            "title": "عنوان",
+            "description": "شرح",
+            "agreement": "اساس نامه",
+            "createDate": "تاریخ ایجاد",
+            "status": "وضعیت",
+            "type": "نوع",
+            "members": "اعضا صندوق"
         }
     }
 }

@@ -2,8 +2,8 @@
     "poshtgarmiApp": {
         "FundStatus" : {
             "null": "",
-            "ACTIVE": "ACTIVE",
-            "INACTIVE": "INACTIVE"
+            "ACTIVE": "فعال",
+            "INACTIVE": "غیر فعال"
         }
     }
 }

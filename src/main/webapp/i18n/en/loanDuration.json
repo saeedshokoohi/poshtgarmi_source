@@ -2,33 +2,33 @@
     "poshtgarmiApp": {
         "loanDuration" : {
             "home": {
-                "title": "Loan Durations",
-                "createLabel": "Create a new Loan Duration",
-                "createOrEditLabel": "Create or edit a Loan Duration",
-                "search": "Search for Loan Duration"
+                "title": "دوره وام",
+                "createLabel": "دوره وام جدید ایجاد شد",
+                "createOrEditLabel": "ایجاد دوره وام",
+                "search": "جیتجو"
             },
-            "created": "A new Loan Duration is created with identifier {{ param }}",
-            "updated": "A Loan Duration is updated with identifier {{ param }}",
-            "deleted": "A Loan Duration is deleted with identifier {{ param }}",
+            "created": "ایجاد شد",
+            "updated": "ویرایش شد",
+            "deleted": "حذف شد",
             "delete": {
-                "question": "Are you sure you want to delete Loan Duration {{ id }}?"
+                "question": "از حذف اطمینان دارید؟"
             },
             "detail": {
-                "title": "Loan Duration"
+                "title": "دوره وام"
             },
-            "title": "Title",
-            "description": "Description",
-            "status": "Status",
-            "agreement": "Agreement",
-            "createDate": "Create Date",
-            "startDate": "Start Date",
-            "minMember": "Min Member",
-            "maxMember": "Max Member",
-            "fundSeedAmount": "Fund Seed Amount",
-            "sarresidDay": "Sarresid Day",
-            "loanPayDay": "Loan Pay Day",
-            "fund": "Fund",
-            "members": "Members"
+            "title": "عنوان",
+            "description": "شرح",
+            "status": "وضعیت",
+            "agreement": "توافقات",
+            "createDate": "تاریخ ایجاد",
+            "startDate": "تاریخ شروع دوره",
+            "minMember": "حدنصاب تعداد اعضا",
+            "maxMember": "حد اکثر تعداد اعضا",
+            "fundSeedAmount": "مقدار پایه اقساط",
+            "sarresidDay": "روز سر رسید اقساط در ماه",
+            "loanPayDay": "روز واریز وام",
+            "fund": "صندوق",
+            "members": "اعضا دوره"
         }
     }
 }

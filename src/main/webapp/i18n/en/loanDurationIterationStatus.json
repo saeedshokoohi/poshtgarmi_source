@@ -2,9 +2,9 @@
     "poshtgarmiApp": {
         "LoanDurationIterationStatus" : {
             "null": "",
-            "ACTIVE": "ACTIVE",
-            "INACTIVE": "INACTIVE",
-            "FINISHED": "FINISHED"
+            "ACTIVE": "فعال",
+            "INACTIVE": "غیر فعال",
+            "FINISHED": "پایان یافته"
         }
     }
 }

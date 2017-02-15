@@ -2,26 +2,26 @@
     "poshtgarmiApp": {
         "loanDurationIteration" : {
             "home": {
-                "title": "Loan Duration Iterations",
-                "createLabel": "Create a new Loan Duration Iteration",
-                "createOrEditLabel": "Create or edit a Loan Duration Iteration",
-                "search": "Search for Loan Duration Iteration"
+                "title": "اقساط وام",
+                "createLabel": "ایجاد",
+                "createOrEditLabel": "ویرایش ",
+                "search": "جستجو"
             },
-            "created": "A new Loan Duration Iteration is created with identifier {{ param }}",
-            "updated": "A Loan Duration Iteration is updated with identifier {{ param }}",
-            "deleted": "A Loan Duration Iteration is deleted with identifier {{ param }}",
+            "created": "ایجاد شد",
+            "updated": "ویرایش شد",
+            "deleted": "حذف شد",
             "delete": {
-                "question": "Are you sure you want to delete Loan Duration Iteration {{ id }}?"
+                "question": "از حذف اطمینان دارید؟"
             },
             "detail": {
-                "title": "Loan Duration Iteration"
+                "title": "اقساط وام"
             },
-            "title": "Title",
-            "createDate": "Create Date",
-            "iterationIndex": "Iteration Index",
-            "status": "Status",
-            "loanDuration": "Loan Duration",
-            "payment": "Payment"
+            "title": "عنوان",
+            "createDate": "تاریخ ایجاد",
+            "iterationIndex": "شماره قسط",
+            "status": "وضعیت",
+            "loanDuration": "دوره وام",
+            "payment": "اطلاعات پرداخت"
         }
     }
 }

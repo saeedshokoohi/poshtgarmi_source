@@ -2,25 +2,25 @@
     "poshtgarmiApp": {
         "loanRequest" : {
             "home": {
-                "title": "Loan Requests",
-                "createLabel": "Create a new Loan Request",
-                "createOrEditLabel": "Create or edit a Loan Request",
-                "search": "Search for Loan Request"
+                "title": "درخواست وام",
+                "createLabel": "ایجاد درخواست",
+                "createOrEditLabel": "ویرایش یا ایجاد درخواست",
+                "search": "جستجو"
             },
-            "created": "A new Loan Request is created with identifier {{ param }}",
-            "updated": "A Loan Request is updated with identifier {{ param }}",
-            "deleted": "A Loan Request is deleted with identifier {{ param }}",
+            "created": "ایجاد شد",
+            "updated": "ویرایش شد",
+            "deleted": "حذف شد",
             "delete": {
-                "question": "Are you sure you want to delete Loan Request {{ id }}?"
+                "question": "از حذف اطمینان دارید؟"
             },
             "detail": {
-                "title": "Loan Request"
+                "title": "درخواست وام"
             },
-            "createDate": "Create Date",
-            "description": "Description",
-            "status": "Status",
-            "loanDurationIteration": "Loan Duration Iteration",
-            "member": "Member"
+            "createDate": "تاریخ ایجاد",
+            "description": "شرح",
+            "status": "وضعیت",
+            "loanDurationIteration": "ماه دوره",
+            "member": "درخواست کننده"
         }
     }
 }

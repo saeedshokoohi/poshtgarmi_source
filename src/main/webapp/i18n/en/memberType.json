@@ -2,8 +2,8 @@
     "poshtgarmiApp": {
         "MemberType" : {
             "null": "",
-            "MANAGER": "MANAGER",
-            "ORDINARY": "ORDINARY"
+            "MANAGER": "مدیر صندوق",
+            "ORDINARY": "عضو عادی"
         }
     }
 }

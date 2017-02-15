@@ -2,32 +2,32 @@
     "poshtgarmiApp": {
         "member" : {
             "home": {
-                "title": "Members",
-                "createLabel": "Create a new Member",
-                "createOrEditLabel": "Create or edit a Member",
-                "search": "Search for Member"
+                "title": "اعضا",
+                "createLabel": "ایجاد عضو جدید",
+                "createOrEditLabel": "ایجاد یا ویرایش",
+                "search": "جستجو"
             },
-            "created": "A new Member is created with identifier {{ param }}",
-            "updated": "A Member is updated with identifier {{ param }}",
-            "deleted": "A Member is deleted with identifier {{ param }}",
+            "created": "ایجاد شد",
+            "updated": "ویرایش شد",
+            "deleted": "حذف شد",
             "delete": {
-                "question": "Are you sure you want to delete Member {{ id }}?"
+                "question": "از حذف اطمینان دارید؟"
             },
             "detail": {
-                "title": "Member"
+                "title": "اعضا"
             },
-            "name": "Name",
-            "userid": "Userid",
-            "memberType": "Member Type",
-            "lastName": "Last Name",
-            "nationalCode": "National Code",
-            "phoneNumber": "Phone Number",
-            "ibnNumber": "Ibn Number",
-            "cardNumber": "Card Number",
-            "accountNumber": "Account Number",
-            "bankCode": "Bank Code",
-            "funds": "Funds",
-            "loanDurations": "Loan Durations"
+            "name": "نام",
+            "userid": "شماره کاربری",
+            "memberType": "نوع عضویت",
+            "lastName": "نام خانوادگی",
+            "nationalCode": "کد ملی",
+            "phoneNumber": "شماره تلفن",
+            "ibnNumber": "شماره شبا",
+            "cardNumber": "شماره کارت بانکی",
+            "accountNumber": "شماره حساب",
+            "bankCode": "کد بانک",
+            "funds": "صندوقها",
+            "loanDurations": "دوره های وام"
         }
     }
 }
