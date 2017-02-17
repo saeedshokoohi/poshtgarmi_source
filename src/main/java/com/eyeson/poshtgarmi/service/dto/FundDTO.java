@@ -27,6 +27,16 @@ public class FundDTO implements Serializable {
 
     private String type;
 
+    public int getMemberCount() {
+        return memberCount;
+    }
+
+    public void setMemberCount(int memberCount) {
+        this.memberCount = memberCount;
+    }
+
+    private int memberCount;
+
 
     private Set<MemberDTO> members = new HashSet<>();
 

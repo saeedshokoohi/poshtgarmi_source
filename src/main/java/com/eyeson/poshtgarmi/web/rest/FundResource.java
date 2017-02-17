@@ -1,14 +1,8 @@
 package com.eyeson.poshtgarmi.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.eyeson.poshtgarmi.domain.Fund;
-import com.eyeson.poshtgarmi.domain.Member;
-import com.eyeson.poshtgarmi.domain.User;
-import com.eyeson.poshtgarmi.security.SecurityUtils;
+import com.eyeson.poshtgarmi.repository.FundRepository;
 import com.eyeson.poshtgarmi.service.FundService;
-import com.eyeson.poshtgarmi.service.MemberService;
-import com.eyeson.poshtgarmi.service.UserService;
-import com.eyeson.poshtgarmi.service.dto.FundStatDTO;
 import com.eyeson.poshtgarmi.web.rest.util.HeaderUtil;
 import com.eyeson.poshtgarmi.web.rest.util.PaginationUtil;
 import com.eyeson.poshtgarmi.service.dto.FundDTO;
@@ -27,7 +21,6 @@ import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -91,12 +84,18 @@ public class FundResource {
      * @return the ResponseEntity with status 200 (OK) and the list of funds in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
+
     @GetMapping("/funds")
     @Timed
     public ResponseEntity<List<FundDTO>> getAllFunds(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Funds");
         Page<FundDTO> page = fundService.findAll(pageable);
+        for(FundDTO f:page)
+        {
+           int count= fundService.getFundMember(f.getId());
+            f.setMemberCount(count);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/funds");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -131,32 +130,6 @@ public class FundResource {
         log.debug("REST request to delete Fund : {}", id);
         fundService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("fund", id.toString())).build();
-    }
-    /**
-     * PUT  /funds : Updates an existing fund.
-     *
-     * @param fundDTO the fundDTO to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated fundDTO,
-     * or with status 400 (Bad Request) if the fundDTO is not valid,
-     * or with status 500 (Internal Server Error) if the fundDTO couldnt be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
-    @Inject
-    UserService userService;
-    @Inject
-    MemberService memberService;
-    @GetMapping("/fundstat")
-    @Timed
-    public ResponseEntity<FundStatDTO> getFundStat() throws URISyntaxException {
-        FundStatDTO result = new FundStatDTO();
-        String currentuserLogin = SecurityUtils.getCurrentUserLogin();
-        User currentUser= userService.findByUserLogin(currentuserLogin);
-        Member  currentMember=memberService.findByUserId(currentUser.getId());
-        result=fundService.findFundStatByMember(currentMember.getId());
-
-        return ResponseEntity.ok()
-//            .headers(HeaderUtil.createEntityUpdateAlert("fund", fundDTO.getId().toString()))
-            .body(result);
     }
 
 }
