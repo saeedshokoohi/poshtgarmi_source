@@ -9,7 +9,7 @@
 
     function stateConfig($stateProvider) {
         $stateProvider.state('fundadmin', {
-            parent: 'account',
+            parent: 'app',
             url: '/fundadmin',
             data: {
                 authorities: [],
@@ -17,7 +17,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/account/fundAdmin/fund-admin.html',
+                    templateUrl: 'app/fundAdmin/fund-admin.html',
                     controller: 'FundAdminController',
                     controllerAs: 'vm'
                 }

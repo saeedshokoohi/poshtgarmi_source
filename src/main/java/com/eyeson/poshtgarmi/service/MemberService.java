@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class MemberService {
 
     private final Logger log = LoggerFactory.getLogger(MemberService.class);
-    
+
     @Inject
     private MemberRepository memberRepository;
 
@@ -47,11 +47,11 @@ public class MemberService {
 
     /**
      *  Get all the members.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<MemberDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Members");
         Page<Member> result = memberRepository.findAll(pageable);
@@ -64,7 +64,7 @@ public class MemberService {
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public MemberDTO findOne(Long id) {
         log.debug("Request to get Member : {}", id);
         Member member = memberRepository.findOne(id);
@@ -80,5 +80,9 @@ public class MemberService {
     public void delete(Long id) {
         log.debug("Request to delete Member : {}", id);
         memberRepository.delete(id);
+    }
+
+    public Member findByUserId(Long userid) {
+        return memberRepository.findOneByUserid(userid);
     }
 }

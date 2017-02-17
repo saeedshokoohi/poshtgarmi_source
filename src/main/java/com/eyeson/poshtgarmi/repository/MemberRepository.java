@@ -12,4 +12,5 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface MemberRepository extends JpaRepository<Member,Long> {
 
+    Member findOneByUserid(Long userid);
 }

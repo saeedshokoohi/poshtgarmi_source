@@ -1,0 +1,73 @@
+<div ng-if="vm.fundstat!=undefined" class="panel panel-default">
+
+    <div class="panel-heading"> {{vm.fundstat.title}}</div>
+    <div class="panel-body">
+        <div class="row" >
+            <div class="col-md-4" >
+                <div class="card" style="background-color: rgba(255,87,34,0.6) ; height: 200px">
+                    <div >
+                        <div class="row" >
+                            <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
+                              <span  class="fa fa-users"></span>
+                            </div>
+                            <div class="col-md-5" style="padding: 25px; font-size: 30px;color: white"  >
+                               <div class="row">
+                                <div class="text-center" >تعداد اعضا</div>
+                                <div class="text-center" >{{vm.fundstat.membersCount}}نفر
+                                </div>
+                               </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div class="card" style="background-color: rgba(76,175,80,0.75) ; height: 200px">
+                    <div >
+                        <div class="row" >
+                            <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
+                                <span  class="fa fa-money"></span>
+                            </div>
+                            <div class="col-md-5" style="padding: 25px; font-size: 25px;color: white"  >
+                                <div class="row">
+                                    <div class="text-center" >موجودی صندوق</div>
+                                    <div class="text-center" >{{vm.fundstat.fundCredit}}تومان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div class="card" style="background-color: rgba(255,167,34,0.7) ; height: 200px">
+                    <div >
+                        <div class="row" >
+                            <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
+                                <span  class="fa fa-calendar-o"></span>
+                            </div>
+                            <div class="col-md-5" style="padding: 25px; font-size: 30px;color: white"  >
+                                <div class="row">
+                                    <div class="text-center" > دوره جاری </div>
+                                    <div class="text-center" >{{vm.fundstat.currentDuration.title}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="row" >
+          <div class="col-md-11" >
+
+          </div>
+      </div>
+
+
+    </div>
+    <div class="panel-footer">Panel Footer</div>
+</div>

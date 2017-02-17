@@ -2,8 +2,8 @@
     "poshtgarmiApp": {
         "PaymentType" : {
             "null": "",
-            "INCOME": "INCOME",
-            "OUTCOME": "OUTCOME"
+            "INCOME": "ورودی به صندوق",
+            "OUTCOME": "خروجی از صندوق"
         }
     }
 }

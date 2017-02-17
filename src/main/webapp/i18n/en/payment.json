@@ -2,10 +2,10 @@
     "poshtgarmiApp": {
         "payment" : {
             "home": {
-                "title": "Payments",
-                "createLabel": "Create a new Payment",
-                "createOrEditLabel": "Create or edit a Payment",
-                "search": "Search for Payment"
+                "title": "پرداخت ها",
+                "createLabel": "پرداخت جدید",
+                "createOrEditLabel": "ایجاد یا ویرایش",
+                "search": "جستجو"
             },
             "created": "A new Payment is created with identifier {{ param }}",
             "updated": "A Payment is updated with identifier {{ param }}",
@@ -14,17 +14,16 @@
                 "question": "Are you sure you want to delete Payment {{ id }}?"
             },
             "detail": {
-                "title": "Payment"
+                "title": "پرداخت ها"
             },
-            "type": "Type",
-            "createDate": "Create Date",
-            "amount": "Amount",
-            "transactionInfo": "Transaction Info",
-            "status": "Status",
-            "description": "Description",
-            "loanDurationIteration": "Loan Duration Iteration",
-            "member": "Member",
-            "loanDurationIteration": "Loan Duration Iteration"
+            "type": "نوع پرداخت",
+            "createDate": "تاریخ ایجاد",
+            "amount": "مبلغ",
+            "transactionInfo": "اطلاعات تراکنش",
+            "status": "وضعیت",
+            "description": "شرح",
+            "loanDurationIteration": "دوره وام",
+            "member": "پرداخت کننده"
         }
     }
 }

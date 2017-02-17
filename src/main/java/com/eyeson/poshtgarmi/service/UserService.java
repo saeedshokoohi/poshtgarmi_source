@@ -247,4 +247,14 @@ public class UserService {
             userRepository.delete(user);
         }
     }
+
+    public User findByUserLogin(String currentuserLogin) {
+        Optional<User> optionalUser = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+        User user = null;
+        if (optionalUser.isPresent()) {
+            user = optionalUser.get();
+            user.getAuthorities().size(); // eagerly load the association
+        }
+        return user;
+    }
 }

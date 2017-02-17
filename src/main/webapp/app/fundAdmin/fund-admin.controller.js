@@ -6,15 +6,16 @@
         .controller('FundAdminController', FundAdminController);
 
 
-    FundAdminController.$inject = ['$translate', '$timeout', 'Auth', 'LoginService'];
+    FundAdminController.$inject = ['$translate', '$timeout', 'Auth', 'Fundstat'];
 
-    function FundAdminController ($translate, $timeout, Auth, LoginService) {
+    function FundAdminController ($translate, $timeout, Auth, Fundstat) {
         var vm = this;
 
         vm.doNotMatch = null;
         vm.error = null;
         vm.errorUserExists = null;
         vm.success = null;
+       vm.fundstat=Fundstat.getCurrentFundStat().get();
 
     }
 })();

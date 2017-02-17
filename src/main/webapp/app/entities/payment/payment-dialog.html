@@ -59,13 +59,13 @@
 
         <div class="form-group">
             <label data-translate="poshtgarmiApp.payment.loanDurationIteration" for="field_loanDurationIteration">Loan Duration Iteration</label>
-            <select class="form-control" id="field_loanDurationIteration" name="loanDurationIteration" ng-model="vm.payment.loanDurationIterationId" ng-options="loanDurationIteration.id as loanDurationIteration.id for loanDurationIteration in vm.loandurationiterations"            >
+            <select class="form-control" id="field_loanDurationIteration" name="loanDurationIteration" ng-model="vm.payment.loanDurationIterationId" ng-options="loanDurationIteration.id as loanDurationIteration.title for loanDurationIteration in vm.loandurationiterations"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label data-translate="poshtgarmiApp.payment.member" for="field_member">Member</label>
-            <select class="form-control" id="field_member" name="member" ng-model="vm.payment.memberId" ng-options="member.id as member.id for member in vm.members"            >
+            <select class="form-control" id="field_member" name="member" ng-model="vm.payment.memberId" ng-options="member.id as member.name for member in vm.members"            >
                 <option value=""></option>
             </select>
         </div>

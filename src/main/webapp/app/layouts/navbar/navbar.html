@@ -15,6 +15,12 @@
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
                 <li ui-sref-active="active">
+                    <a ui-sref="fundadmin" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-stats"></span>
+                        <span class="hidden-sm" data-translate="global.menu.dashManager">Dashboard</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
                     <a ui-sref="home" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="hidden-sm" data-translate="global.menu.home">Home</span>
@@ -31,6 +37,7 @@
                             <b class="caret"></b>
                         </span>
                     </a>
+
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active">
                             <a ui-sref="fund" ng-click="vm.collapseNavbar()">

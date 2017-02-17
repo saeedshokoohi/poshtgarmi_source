@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <label data-translate="poshtgarmiApp.loanDurationIteration.loanDuration" for="field_loanDuration">Loan Duration</label>
-            <select class="form-control" id="field_loanDuration" name="loanDuration" ng-model="vm.loanDurationIteration.loanDurationId" ng-options="loanDuration.id as loanDuration.id for loanDuration in vm.loandurations"            >
+            <select class="form-control" id="field_loanDuration" name="loanDuration" ng-model="vm.loanDurationIteration.loanDurationId" ng-options="loanDuration.id as loanDuration.title for loanDuration in vm.loandurations"            >
                 <option value=""></option>
             </select>
         </div>

@@ -91,7 +91,7 @@
 
         <div class="form-group">
             <label data-translate="poshtgarmiApp.loanDuration.fund" for="field_fund">Fund</label>
-            <select class="form-control" id="field_fund" name="fund" ng-model="vm.loanDuration.fundId" ng-options="fund.id as fund.id for fund in vm.funds"            >
+            <select class="form-control" id="field_fund" name="fund" ng-model="vm.loanDuration.fundId" ng-options="fund.id as fund.title for fund in vm.funds"            >
                 <option value=""></option>
             </select>
         </div>
