@@ -15,9 +15,9 @@
             'ui.bootstrap',
             'ui.bootstrap.datetimepicker',
             'ui.router',
-            'infinite-scroll',
+            //'infinite-scroll',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
-            'angular-loading-bar',
+            //'angular-loading-bar',
             'lr.upload',
             'persian_datepicker',
             'thatisuday.ng-image-gallery'
