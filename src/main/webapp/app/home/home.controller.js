@@ -5,11 +5,11 @@
         .module('poshtgarmiApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state','Fund'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope, Principal, LoginService, $state,Fund) {
         var vm = this;
-
+       vm.fundlist=Fund.query();
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
