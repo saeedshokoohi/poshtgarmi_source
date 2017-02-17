@@ -8,17 +8,17 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('register', {
+        $stateProvider.state('fundadmin', {
             parent: 'account',
-            url: '/register',
+            url: '/fundadmin',
             data: {
                 authorities: [],
                 pageTitle: 'register.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/account/register/register.html',
-                    controller: 'RegisterController',
+                    templateUrl: 'app/account/fundAdmin/fund-admin.html',
+                    controller: 'FundAdminController',
                     controllerAs: 'vm'
                 }
             },
@@ -26,6 +26,7 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('register');
                     $translatePartialLoader.addPart('member');
+                    $translatePartialLoader.addPart('fund');
                     return $translate.refresh();
                 }]
             }

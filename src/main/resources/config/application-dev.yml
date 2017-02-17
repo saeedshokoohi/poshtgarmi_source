@@ -24,7 +24,7 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://82.102.12.144:5432/poshtgarmi_db
+        url: jdbc:postgresql://localhost:5432/poshtgarmi_db
         name: poshtgarmi_db
         username: postgres
         password: 123

@@ -1,6 +1,6 @@
-<div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+<div class="well">
+    <div class="row" >
+        <div class="col-md-6 ">
             <h1 data-translate="register.title">Registration</h1>
 
             <div class="alert alert-success" ng-show="vm.success" data-translate="register.messages.success">
@@ -23,7 +23,10 @@
                 The password and its confirmation do not match!
             </div>
         </div>
-        <div class="col-md-4 col-md-offset-2">
+    </div>
+    <div class="row">
+
+        <div class="col-md-5 ">
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
 
                 <div class="form-group">
@@ -115,15 +118,81 @@
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" data-translate="register.form.button">Register</button>
             </form>
             <p></p>
-            <div class="alert alert-warning" data-translate="global.messages.info.authenticated" translate-compile>
-                If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-            </div>
+            <!--<div class="alert alert-warning" data-translate="global.messages.info.authenticated" translate-compile>-->
+                <!--If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").-->
+            <!--</div>-->
         </div>
-        <div class="col-md-4">
-            <br/>
-            <jh-social ng-provider="google"></jh-social>
-            <jh-social ng-provider="facebook"></jh-social>
-            <jh-social ng-provider="twitter"></jh-social>
+        <div class="col-md-7">
+            <div class="modal-body">
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" ng-show="vm.member.id">
+                    <label for="id" data-translate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                           ng-model="vm.member.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" data-translate="poshtgarmiApp.member.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           ng-model="vm.registerAccount.member.name"
+                    />
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" data-translate="poshtgarmiApp.member.userid" for="field_userid">Userid</label>-->
+                    <!--<input type="number" class="form-control" name="userid" id="field_userid"-->
+                           <!--ng-model="vm.registerAccount.member.userid"-->
+                    <!--/>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" data-translate="poshtgarmiApp.member.memberType" for="field_memberType">Member Type</label>-->
+                    <!--<select class="form-control" name="memberType" ng-model="vm.registerAccount.member.memberType" id="field_memberType">-->
+                        <!--<option value="MANAGER" data-translate="poshtgarmiApp.MemberType.MANAGER">MANAGER</option>-->
+                        <!--<option value="ORDINARY" data-translate="poshtgarmiApp.MemberType.ORDINARY">ORDINARY</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <label class="control-label" data-translate="poshtgarmiApp.member.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           ng-model="vm.registerAccount.member.lastName"
+                    />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" data-translate="poshtgarmiApp.member.nationalCode" for="field_nationalCode">National Code</label>
+                    <input type="text" class="form-control" name="nationalCode" id="field_nationalCode"
+                           ng-model="vm.registerAccount.member.nationalCode"
+                    />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" data-translate="poshtgarmiApp.member.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           ng-model="vm.registerAccount.member.phoneNumber"
+                    />
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" data-translate="poshtgarmiApp.member.ibnNumber" for="field_ibnNumber">Ibn Number</label>-->
+                    <!--<input type="text" class="form-control" name="ibnNumber" id="field_ibnNumber"-->
+                           <!--ng-model="vm.registerAccount.member.ibnNumber"-->
+                    <!--/>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <label class="control-label" data-translate="poshtgarmiApp.member.cardNumber" for="field_cardNumber">Card Number</label>
+                    <input type="text" class="form-control" name="cardNumber" id="field_cardNumber"
+                           ng-model="vm.registerAccount.member.cardNumber"
+                    />
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" data-translate="poshtgarmiApp.member.accountNumber" for="field_accountNumber">Account Number</label>-->
+                    <!--<input type="text" class="form-control" name="accountNumber" id="field_accountNumber"-->
+                           <!--ng-model="vm.registerAccount.member.accountNumber"-->
+                    <!--/>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="control-label" data-translate="poshtgarmiApp.member.bankCode" for="field_bankCode">Bank Code</label>-->
+                    <!--<input type="text" class="form-control" name="bankCode" id="field_bankCode"-->
+                           <!--ng-model="vm.registerAccount.member.bankCode"-->
+                    <!--/>-->
+                <!--</div>-->
+
+            </div>
             <!-- jhipster-needle-add-social-button -->
         </div>
     </div>

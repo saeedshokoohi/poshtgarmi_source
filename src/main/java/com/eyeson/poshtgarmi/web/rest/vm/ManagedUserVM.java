@@ -4,7 +4,9 @@ import java.time.ZonedDateTime;
 
 import java.util.Set;
 
+import com.eyeson.poshtgarmi.domain.Member;
 import com.eyeson.poshtgarmi.domain.User;
+import com.eyeson.poshtgarmi.service.dto.MemberDTO;
 import com.eyeson.poshtgarmi.service.dto.UserDTO;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,10 +29,21 @@ public class ManagedUserVM extends UserDTO {
 
     private ZonedDateTime lastModifiedDate;
 
+    private MemberDTO member;
+
+    public MemberDTO getMember() {
+        return member;
+    }
+
+    public void setMember(MemberDTO member) {
+        this.member = member;
+    }
+
     @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
     private String password;
 
     public ManagedUserVM() {
+        member=new MemberDTO();
     }
 
     public ManagedUserVM(User user) {
