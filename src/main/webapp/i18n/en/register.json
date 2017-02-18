@@ -1,6 +1,8 @@
 {
     "register": {
         "title": "ثبت نام",
+        "paymentForm":"فرم پرداخت",
+        "dashboard":"داشبورد",
         "form": {
             "button": "ثبت نام"
         },

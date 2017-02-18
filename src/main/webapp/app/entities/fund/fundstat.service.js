@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
     angular
         .module('poshtgarmiApp')
@@ -6,17 +6,26 @@
 
     Fundstat.$inject = ['$resource', 'DateUtils'];
 
-    function Fundstat ($resource, DateUtils) {
+    function Fundstat($resource, DateUtils) {
 
-        return{
-            getCurrentFundStat:getCurrentFundStat,
-            getPaymentInfo:getPaymentInfo
+        return {
+            getCurrentFundStat: getCurrentFundStat,
+            getPaymentInfo: getPaymentInfo,
+            sendPayRequest:sendPayRequest
+        }
+        function sendPayRequest(payInfo) {
+
+            var resourceUrl = 'api/sendPayRequest';
+
+            return $resource(resourceUrl, {}, {
+
+
+            });
         }
 
-        function getPaymentInfo(params)
-        {
+        function getPaymentInfo(params) {
 
-            var resourceUrl =  'api/paymentInfo/'+params.iterationid+'/'+params.fromid+'/'+params.toid;
+            var resourceUrl = 'api/paymentInfo/' + params.iterationid + '/' + params.fromid + '/' + params.toid;
 
             return $resource(resourceUrl, {}, {
                 'get': {
@@ -30,9 +39,9 @@
                 }
             });
         }
-        function getCurrentFundStat()
-        {
-            var resourceUrl =  'api/fundstat';
+
+        function getCurrentFundStat() {
+            var resourceUrl = 'api/fundstat';
 
             return $resource(resourceUrl, {}, {
                 'get': {

@@ -13,7 +13,7 @@
             url: '/accountInfo/{iteration}/{from}/{to}',
             data: {
                 authorities: [],
-                pageTitle: 'register.title'
+                pageTitle: 'register.paymentForm'
             },
             views: {
                 'content@': {

@@ -1,11 +1,10 @@
 package com.eyeson.poshtgarmi.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.eyeson.poshtgarmi.domain.Fund;
-import com.eyeson.poshtgarmi.domain.LoanDurationIteration;
 import com.eyeson.poshtgarmi.domain.Member;
 import com.eyeson.poshtgarmi.domain.User;
-import com.eyeson.poshtgarmi.repository.LoanDurationIterationRepository;
+import com.eyeson.poshtgarmi.domain.enumeration.PaymentStatus;
+import com.eyeson.poshtgarmi.domain.enumeration.PaymentType;
 import com.eyeson.poshtgarmi.security.SecurityUtils;
 import com.eyeson.poshtgarmi.service.*;
 import com.eyeson.poshtgarmi.service.dto.*;
@@ -23,11 +22,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.LinkedList;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Fund.
@@ -96,9 +93,8 @@ public class FundResource {
         throws URISyntaxException {
         log.debug("REST request to get a page of Funds");
         Page<FundDTO> page = fundService.findAll(pageable);
-        for(FundDTO f:page)
-        {
-           int count= fundService.getFundMember(f.getId());
+        for (FundDTO f : page) {
+            int count = fundService.getFundMember(f.getId());
             f.setMemberCount(count);
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/funds");
@@ -136,6 +132,7 @@ public class FundResource {
         fundService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("fund", id.toString())).build();
     }
+
     /**
      * PUT  /funds : Updates an existing fund.
      *
@@ -149,34 +146,83 @@ public class FundResource {
     UserService userService;
     @Inject
     MemberService memberService;
+
     @GetMapping("/fundstat")
     @Timed
     public ResponseEntity<FundStatDTO> getFundStat() throws URISyntaxException {
         FundStatDTO result = new FundStatDTO();
         String currentuserLogin = SecurityUtils.getCurrentUserLogin();
-        User currentUser= userService.findByUserLogin(currentuserLogin);
-        Member  currentMember=memberService.findByUserId(currentUser.getId());
-        result=fundService.findFundStatByMember(currentMember.getId());
+        User currentUser = userService.findByUserLogin(currentuserLogin);
+        Member currentMember = memberService.findByUserId(currentUser.getId());
+        result = fundService.findFundStatByMember(currentMember.getId());
 
         return ResponseEntity.ok()
 //            .headers(HeaderUtil.createEntityUpdateAlert("fund", fundDTO.getId().toString()))
             .body(result);
     }
+
     @Inject
     LoanDurationIterationService loanDurationIterationService;
     @Inject
     LoanDurationService loanDurationService;
+
     @GetMapping("/paymentInfo/{iterationid}/{from}/{to}")
     @Timed
     public ResponseEntity<PaymentInfoDTO> getPaymentInfo(@PathVariable Long iterationid, @PathVariable Long from, @PathVariable Long to) throws URISyntaxException {
         PaymentInfoDTO result = new PaymentInfoDTO();
         LoanDurationIterationDTO iteration = loanDurationIterationService.findOne(iterationid);
-        if(iteration!=null) {
+        if (iteration != null) {
             LoanDurationDTO duration = loanDurationService.findOne(iteration.getLoanDurationId());
             result.setAmount(duration.getFundSeedAmount());
             result.setFromMember(memberService.findOne(from));
             result.setToMember(memberService.findOne(to));
         }
+        return ResponseEntity.ok()
+//            .headers(HeaderUtil.createEntityUpdateAlert("fund", fundDTO.getId().toString()))
+            .body(result);
+    }
+
+    @Inject
+    PaymentService paymentService;
+
+    @PostMapping("/sendPayRequest")
+    @Timed
+    public ResponseEntity<String> sendPayRequest(PaymentInfoDTO payment) throws URISyntaxException {
+        String result = "OK";
+        String transactionCode = "";
+
+
+        //calling payment services
+        try {
+//            SettingHandler.settingFilePath = "C:/tc_settings.properties";
+//            AuthenticationHandler authenticationHandler = new AuthenticationHandler();
+//            TosanAuthRequestInfo marketAuthRequestInfo = new TosanAuthRequestInfo("shokoohi_saeed", "saewdfg");
+//            MarketAuthToken marketAuthToken = authenticationHandler.marketAuthenticate(marketAuthRequestInfo);
+//            TosanAuthRequestInfo tosanAuthRequestInfo = new TosanAuthRequestInfo(payment.getUsername(), payment.getPassword());
+//            TosanAuthToken tosanAuthToken = authenticationHandler.tosanAuthenticate(tosanAuthRequestInfo, marketAuthToken);
+//            DepositHandler depositHandler = new DepositHandler();
+//            DepositTransferRequest depositTransferRequest = new DepositTransferRequest(payment.getFromMember().getAccountNumber(), payment.getToMember().getAccountNumber(), payment.getAmount());
+//            transactionCode = depositHandler.moneyTransferBetweenDeposits(depositTransferRequest, tosanAuthToken, marketAuthToken);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        //end of
+        PaymentDTO paymentDto = new PaymentDTO();
+        paymentDto.setAmount(payment.getAmount());
+        paymentDto.setCreateDate(ZonedDateTime.now());
+        if (payment.getType() == 0) {
+            paymentDto.setMemberId(payment.getFromMember().getId());
+            paymentDto.setType(PaymentType.INCOME);
+
+        } else {
+            paymentDto.setType(PaymentType.OUTCOME);
+            paymentDto.setMemberId(payment.getToMember().getId());
+
+        }
+        paymentDto.setStatus(PaymentStatus.DONE);
+        paymentDto.setTransactionInfo(transactionCode);
+        paymentService.save(paymentDto);
+
         return ResponseEntity.ok()
 //            .headers(HeaderUtil.createEntityUpdateAlert("fund", fundDTO.getId().toString()))
             .body(result);

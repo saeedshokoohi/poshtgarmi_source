@@ -13,7 +13,7 @@
             url: '/fundadmin',
             data: {
                 authorities: [],
-                pageTitle: 'register.title'
+                pageTitle: 'register.dashboard'
             },
             views: {
                 'content@': {
