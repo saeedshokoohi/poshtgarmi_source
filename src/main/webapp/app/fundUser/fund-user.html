@@ -4,7 +4,7 @@
     <div class="panel-body">
         <div class="row" >
             <div class="col-md-4" >
-                <div class="card" style="background-color: rgba(255,87,34,0.6) ; height: 200px">
+                <div class="card" style="background-color: rgba(255,87,34,0.6) ; height: 150px">
                     <div >
                         <div class="row" >
                             <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-md-4" >
-                <div class="card" style="background-color: rgba(76,175,80,0.75) ; height: 200px">
+                <div class="card" style="background-color: rgba(76,175,80,0.75) ; height: 150px">
                     <div >
                         <div class="row" >
                             <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="col-md-4" >
-                <div class="card" style="background-color: rgba(255,167,34,0.7) ; height: 200px">
+                <div class="card" style="background-color: rgba(255,167,34,0.7) ; height: 150px">
                     <div >
                         <div class="row" >
                             <div class="col-md-5" style="padding: 25px; font-size: 80px;color: white" >
@@ -80,9 +80,7 @@
                           <span ng-if="member.hasPaid" class="fa fa-check" style="font-size: 20px;color: #00c853"></span> </td>
                       <td>{{member.name +' '+member.lastName}}</td>
                       <td >
-                          <button ng-if="!member.hasPaid" type="button" class="btn btn-success" >
-ارسال پیامک یادآوری
-                          </button>
+
                       </td>
                   </tr>
                   </tbody>
@@ -93,13 +91,10 @@
 
     </div>
     <div class="panel-footer text-center">
-        <button class="btn btn-success" style="font-size: 30px" ng-disabled="!vm.fundstat.allMemberHasPaid" >
-            <span  class="fa fa-magic"></span>
-            انجام قرعه کشی
-        </button>
-        <button style="font-size: 30px" class="btn btn-success" ng-disabled="!vm.fundstat.allMemberHasPaid" >
+
+        <button style="font-size: 30px" ng-click="vm.gotoPayment()" class="btn btn-success"  >
             <span class="fa fa-share-square-o"></span>
-            پرداخت مبلغ وام به برنده
+            پرداخت مبلغ ماهیانه وام
         </button>
 
     </div>

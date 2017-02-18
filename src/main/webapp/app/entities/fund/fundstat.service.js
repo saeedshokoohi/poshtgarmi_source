@@ -9,7 +9,26 @@
     function Fundstat ($resource, DateUtils) {
 
         return{
-            getCurrentFundStat:getCurrentFundStat
+            getCurrentFundStat:getCurrentFundStat,
+            getPaymentInfo:getPaymentInfo
+        }
+
+        function getPaymentInfo(params)
+        {
+
+            var resourceUrl =  'api/paymentInfo/'+params.iterationid+'/'+params.fromid+'/'+params.toid;
+
+            return $resource(resourceUrl, {}, {
+                'get': {
+                    method: 'GET',
+                    transformResponse: function (data) {
+                        if (data) {
+                            data = angular.fromJson(data);
+                        }
+                        return data;
+                    }
+                }
+            });
         }
         function getCurrentFundStat()
         {

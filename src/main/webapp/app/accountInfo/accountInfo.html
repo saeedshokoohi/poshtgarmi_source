@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card" style="background-color: rgba(3,169,244,0.25) ; height: 300px">
+                    <div class="card-block">
+                        <dl class="dl-horizontal jh-entity-details">
+                            <dt><span data-translate="poshtgarmiApp.fund.from">Title</span></dt>
+                            <dd>
+                                <span>{{vm.payInfo.fromMember.name+' '+vm.payInfo.fromMember.lastName}}</span>
+                            </dd>
+                        </dl>
+                        <dl class="dl-horizontal jh-entity-details">
+                            <dt><span data-translate="poshtgarmiApp.fund.to">Title</span></dt>
+                            <dd>
+                                <span>{{vm.payInfo.toMember.name+' '+vm.payInfo.toMember.lastName}}</span>
+                            </dd>
+                        </dl>
+                        <dl class="dl-horizontal jh-entity-details">
+                            <dt><span data-translate="poshtgarmiApp.fund.amount">Title</span></dt>
+                            <dd>
+                                <span>{{vm.payInfo.amount}} تومان</span>
+                            </dd>
+                        </dl>
+                        <dl class="dl-horizontal jh-entity-details">
+                            <dt><span data-translate="poshtgarmiApp.fund.password">Title</span></dt>
+                            <dd>
+                                <input type="password" ng-bind="vm.password">
+                            </dd>
+                        </dl>
+                        <dl class="dl-horizontal jh-entity-details">
+                            <dt></dt>
+                            <dd>
+                                <div>
+                                    <button class="btn btn-success">
+                                <span class="fa fa-check">
+                                </span>
+                                        تایید
+
+                                    </button>
+                                </div>
+                            </dd>
+                        </dl>
+
+
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+
+
+            </div>
+
+        </div>

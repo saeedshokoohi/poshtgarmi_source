@@ -1,6 +1,7 @@
 package com.eyeson.poshtgarmi.service.dto;
 
 import com.eyeson.poshtgarmi.domain.LoanDuration;
+import com.eyeson.poshtgarmi.domain.LoanDurationIteration;
 import com.eyeson.poshtgarmi.domain.enumeration.FundStatus;
 
 import java.io.Serializable;
@@ -30,9 +31,12 @@ public class FundStatDTO implements Serializable {
 
 
     private Set<MemberDTO> members = new HashSet<>();
+
     private LoanDuration currentDuration;
     private int membersCount;
     private int fundCredit;
+    private LoanDurationIteration currentIteration;
+    private boolean allMemberHasPaid;
 
     public Long getId() {
         return id;
@@ -148,5 +152,21 @@ public class FundStatDTO implements Serializable {
 
     public int getFundCredit() {
         return fundCredit;
+    }
+
+    public void setCurrentIteration(LoanDurationIteration currentIteration) {
+        this.currentIteration = currentIteration;
+    }
+
+    public LoanDurationIteration getCurrentIteration() {
+        return currentIteration;
+    }
+
+    public void setAllMemberHasPaid(boolean allMemberHasPaid) {
+        this.allMemberHasPaid = allMemberHasPaid;
+    }
+
+    public boolean isAllMemberHasPaid() {
+        return allMemberHasPaid;
     }
 }

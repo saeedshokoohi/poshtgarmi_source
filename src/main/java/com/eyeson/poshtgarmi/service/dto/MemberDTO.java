@@ -33,6 +33,7 @@ public class MemberDTO implements Serializable {
     private String accountNumber;
 
     private String bankCode;
+    private boolean hasPaid;
 
 
     public Long getId() {
@@ -149,5 +150,13 @@ public class MemberDTO implements Serializable {
             ", accountNumber='" + accountNumber + "'" +
             ", bankCode='" + bankCode + "'" +
             '}';
+    }
+
+    public void setHasPaid(boolean hasPaid) {
+        this.hasPaid = hasPaid;
+    }
+
+    public boolean isHasPaid() {
+        return hasPaid;
     }
 }

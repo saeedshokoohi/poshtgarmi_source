@@ -1,6 +1,10 @@
 {
     "poshtgarmiApp": {
         "fund" : {
+            "from":"برداشت از حساب",
+            "to":"واریز به حساب",
+             "amount":"مبلغ",
+             "password":"کلمه عبور",
             "home": {
                 "title": "صندوق",
                 "createLabel": "ایجاد صندوق جدید",
